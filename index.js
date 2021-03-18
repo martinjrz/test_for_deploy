@@ -16,6 +16,7 @@ server.use(bodyParser.urlencoded({extended:true}))
 server.use(parser.json())
 server.post('/postuser',(req,res)=>{
     console.log(req.body)
+    res.json({name:req.body.name})
 })
 
 server.use(cors({
