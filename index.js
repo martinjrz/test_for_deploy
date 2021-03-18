@@ -1,6 +1,9 @@
 const express=require('express')
 const server=express()
 const path=require('path')
+const parser=require('body-parser')
+const bodyParser = require('body-parser')
+const cors=require('cors')
 const port=process.env.PORT || 5000
 if(process.env.NODE_ENV==='production')
 {
@@ -9,6 +12,19 @@ if(process.env.NODE_ENV==='production')
     res.sendFile(path.join(__dirname,'react-on-host','build','index.html'))
   })
 }
+server.use(bodyParser.urlencoded({extended:true}))
+server.use(parser.json())
+server.post('/postuser',(req,res)=>{
+    console.log(req.body)
+})
+server.get('/user',(req,res)=>{
+    console.log('sdfsdfdfsdfsdfdsf')
+    res.json({name:'naren'})
+})
+server.use(cors({
+    credentials:true,
+    allowedHeaders:"*"
+}))
 server.listen(port,()=>{
     console.log('connected to server')
 })
