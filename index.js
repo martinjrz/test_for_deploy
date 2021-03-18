@@ -19,10 +19,10 @@ server.post('/postuser',(req,res)=>{
     res.json({name:req.body.name})
 })
 
-server.use(cors({
-    credentials:true,
-    allowedHeaders:"*"
-}))
+// server.use(cors({
+//     credentials:true,
+//     allowedHeaders:"*"
+// }))
 server.listen(port,()=>{
     console.log('connected to server')
 })
