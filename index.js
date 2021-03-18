@@ -17,10 +17,7 @@ server.use(parser.json())
 server.post('/postuser',(req,res)=>{
     console.log(req.body)
 })
-server.get('/user',(req,res)=>{
-    console.log('sdfsdfdfsdfsdfdsf')
-    res.json({name:'naren'})
-})
+
 server.use(cors({
     credentials:true,
     allowedHeaders:"*"
